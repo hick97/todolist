@@ -1,0 +1,79 @@
+body{
+    background-image: url("../img/typewriter-801921_1920.jpg");
+}
+.table{
+    background-color: #fff;
+    opacity: 0.9;
+}
+.card{
+    opacity: 0.9;
+}
+.card-title{
+    font-size: 70px;
+
+}
+.card-subtitle{
+    font-size: 25px;
+}
+.dancing-script{
+    font-family: 'Dancing Script', cursive;
+}
+.task{
+    color: #111;
+}
+.btn-task{
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+}
+a i{
+    color: black;
+    margin-right: 20px;
+}
+a i:hover{
+    color: gray;
+    cursor: pointer;
+}
+.edit-form{
+    background-color: #111;
+    opacity: 0.9;
+    height: 230px;
+    border-radius: 3px;
+    padding: 10px;
+    margin-left: 18%;
+}
+.label-edit-form{
+    color: white;
+}
+.welcome-message{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+    font-size: 25px;   
+}
+.logout{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #111;
+    font-weight: 600;
+    z-index: 1000;
+}
+.logout:hover{
+    color: #111;
+}
+.logout i:hover{
+    color: #111;
+}
+@media screen and (max-width: 480px) {
+    .logout {
+      top: 25px;
+      right: 5px;
+    }
+}
+@media screen and (max-width: 960px){
+    .btn-task{
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+    }
+}

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/todoicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <title>To Do List</title>
+  </head>
+  <body>
+    <a href="/user/login" class="logout">Sair <i class="fas fa-sign-out-alt"></i></a>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="card col-sm-12 mt-3">
+                    <div class="card-body">
+                        <h1 class="card-title dancing-script">To do list</h1>
+                        <h6 class="card-subtitle mb-3 text-muted dancing-script">A melhor estratégia para alcançar seus objetivos</h6>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-dark btn-sm btn-task" data-toggle="modal" data-target="#exampleModal">
+                                CRIAR TAREFA
+                        </button>
+                        <h5 class="welcome-message">Olá,  <%= user.name.split(' ')[0] %> !</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table col-sm-12 mt-3">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Prazo</th>
+                        <th scope="col">Tarefa</th>
+                        <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% (tasks).forEach(task => { %>
+                        <tr>
+                            <th scope="row">        
+                                <%= task.datedue %>
+                            </th>
+                            <td>
+                                <%= task.description %>
+                            </td>
+                            <td>
+                                <a href="/delete/<%= task.id %>/<%= token %>"><i class="fas fa-check"></i></a>
+                                <a href="/editar/<%= task.id %>/<%= token %>"><i class="far fa-edit"></i></a>
+                                <a href="/delete/<%= task.id %>/<%= token %>"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nova tarefa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="/nova/<%= token %>">
+                        <div class="form-group">
+                            <label for="mytask">Tarefa</label>
+                            <input type="text" name ="description" id="description" class="form-control" id="mytask" aria-describedby="emailHelp" placeholder="Descreva sua tarefa" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="datedue">Prazo</label>
+                            <input type="date" name="datedue" class="form-control" id="datedue" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Cadastrar</button>
+                    </form>             
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
