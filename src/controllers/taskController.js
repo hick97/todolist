@@ -15,7 +15,7 @@ module.exports = {
     async store(req, res){
         const token = req.params.token;
         var d  = new Date(req.body.datedue);
-        var monName = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");     
+        var monName = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio","Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");     
         const task = await Task.create({
             name: req.body.name,
             description: req.body.description,
@@ -33,7 +33,7 @@ module.exports = {
     async update(req, res){
         const token = req.params.token;
         var d  = new Date(req.body.datedue);
-        var monName = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");     
+        var monName = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio","Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");     
 
         await Task.findByIdAndUpdate(req.params.id, {
             description: req.body.description,
